@@ -94,7 +94,7 @@ public class ControlDrive extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-
+        //initializing motors and servos
         initialize();
 
 
@@ -159,17 +159,8 @@ public class ControlDrive extends LinearOpMode {
         rightBackDrive.setPower(STRAFE_SPEED);
     }
 
-    //Open Claw
-    public void openClaw()
-    {
-        if(gamepad1.right_trigger == 1.0)
-        {
-            // Keep stepping up until we hit the max value
-            servo.setPosition(MAX_POS);
 
-        }
-    }
-
+    //==============================================================================
     //initialize stuff
     public void initWheelMotor()
     {
@@ -183,19 +174,16 @@ public class ControlDrive extends LinearOpMode {
         rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
         rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
     }
-
     public void initArmMotor()
     {
         armMotor = hardwareMap.get(DcMotor.class, "armMotor");
         armMotor2 = hardwareMap.get(DcMotor.class, "armMotor2");
     }
-
     public void initServo()
     {
 
         servo = hardwareMap.get(Servo.class, "servo");
     }
-
     public void initialize()
     {
         initWheelMotor();
@@ -207,7 +195,18 @@ public class ControlDrive extends LinearOpMode {
         waitForStart();
         runtime.reset();
     }
+    //====================================================================================
 
+    //Open Claw
+    public void openClaw()
+    {
+        if(gamepad1.right_trigger == 1.0)
+        {
+            // Keep stepping up until we hit the max value
+            servo.setPosition(MAX_POS);
+
+        }
+    }
     //close claw
     public void closeClaw()
     {
@@ -217,6 +216,11 @@ public class ControlDrive extends LinearOpMode {
             servo.setPosition(MIN_POS);
         }
     }
+
+
+    //============================================================================================
+
+
 
     //run manually
     public void runDriver()
@@ -273,6 +277,13 @@ public class ControlDrive extends LinearOpMode {
         rightBackDrive.setPower(rightBackPower);
     }
 
+
+    
+    //============================================================================================
+    //elevator
+
+
+
     //Going up
     public void goingUp() {
         if(gamepad1.left_bumper)
@@ -304,6 +315,10 @@ public class ControlDrive extends LinearOpMode {
             armMotor2.setPower(0);
         }
     }
+
+
+
+    //=====================================================================================================
 
 
 }
