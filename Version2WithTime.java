@@ -157,6 +157,12 @@ public class Version2WithTime extends LinearOpMode {
         rightFrontDrive.setPower(TURN_SPEED);
         leftBackDrive.setPower(-TURN_SPEED);
         rightBackDrive.setPower(TURN_SPEED);
+        
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < time)) {
+            telemetry.addData("Path", "Leg 2: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
     }
                             
 
