@@ -136,7 +136,7 @@ public class Version2WithTime extends LinearOpMode {
         }
     }
 
-    public void goTurn(double time)
+    public void goTurnRight(double time)
     {
         leftFrontDrive.setPower(TURN_SPEED);
         rightFrontDrive.setPower(-TURN_SPEED);
@@ -150,6 +150,15 @@ public class Version2WithTime extends LinearOpMode {
             telemetry.update();
         }
     }
+    
+    public void goTurnLeft(double time)
+    {
+        leftFrontDrive.setPower(-TURN_SPEED);
+        rightFrontDrive.setPower(TURN_SPEED);
+        leftBackDrive.setPower(-TURN_SPEED);
+        rightBackDrive.setPower(TURN_SPEED);
+    }
+                            
 
     public void goBackwards(double time)
     {
