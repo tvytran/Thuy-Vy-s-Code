@@ -57,17 +57,22 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @Disabled
 public class Version2WithTime extends LinearOpMode {
 
-    /* Declare OpMode members. */
+    //declaring wheel motors
     private DcMotor leftFrontDrive   = null;
     private DcMotor rightFrontDrive  = null;
     private DcMotor leftBackDrive = null;
     private DcMotor rightBackDrive = null;
+    
+    //declaring arm motors
+    private DcMotor armMotor = null;
+    private DcMotor armMotor2 = null;
 
     private ElapsedTime runtime = new ElapsedTime();
 
 
     static final double     FORWARD_SPEED = 0.6;
     static final double     TURN_SPEED    = 0.5;
+    static final double UP_SPEED = 0.1;
 
     @Override
     public void runOpMode() {
@@ -100,7 +105,11 @@ public class Version2WithTime extends LinearOpMode {
         telemetry.update();
         sleep(1000);
     }
-
+    
+    //============================================================================================================
+    //initialize 
+    
+    
     public void initWheelMotors()
     {
         leftFrontDrive  = hardwareMap.get(DcMotor.class, "leftFrontDrive");
@@ -116,12 +125,19 @@ public class Version2WithTime extends LinearOpMode {
         leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
         rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
     }
+    
+    public void initArmMotors()
+    {
+        
+    }
     public void initialize()
     {
         initWheelMotors();
     }
-
-
+    //======================================================================================
+    //movement methods
+    
+    //going forward method
     public void goForward(double time)
     {
         leftFrontDrive.setPower(FORWARD_SPEED);
@@ -135,7 +151,8 @@ public class Version2WithTime extends LinearOpMode {
             telemetry.update();
         }
     }
-
+    
+    //turning right method
     public void goTurnRight(double time)
     {
         leftFrontDrive.setPower(TURN_SPEED);
@@ -151,6 +168,7 @@ public class Version2WithTime extends LinearOpMode {
         }
     }
     
+    //turning left method
     public void goTurnLeft(double time)
     {
         leftFrontDrive.setPower(-TURN_SPEED);
@@ -165,7 +183,7 @@ public class Version2WithTime extends LinearOpMode {
         }
     }
                             
-
+    //going backwards method
     public void goBackwards(double time)
     {
         leftFrontDrive.setPower(-FORWARD_SPEED);
@@ -180,6 +198,35 @@ public class Version2WithTime extends LinearOpMode {
             telemetry.update();
         }
     }
+    
+    //arms moving up method
+    public void goUp(double time)
+    {
+        armMotor.setPower(UP_SPEED);
+        armMotor2.setPower(UP_SPEED);
+
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < time)) {
+            telemetry.addData("Path", "Leg 3: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+    }
+    
+    //arms moving down
+    public void goDown(double time)
+    {
+        armMotor.setPower(-UP_SPEED);
+        armMotor2.setPower(-UP_SPEED);
+
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < time)) {
+            telemetry.addData("Path", "Leg 3: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+    }
+        
 
     public void stopMotors()
     {
