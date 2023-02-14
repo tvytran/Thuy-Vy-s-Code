@@ -29,6 +29,7 @@
 
 package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -96,10 +97,9 @@ public class Version2WithTime extends LinearOpMode {
         goForward(3);
 
         // Step 2:  Spin right for 1.3 seconds
-        goTurn(1.3);
+        goTurnRight(0.65);
 
-        // Step 3:  Drive Backward for 1 Second
-        goBackwards(1);
+        goUp(0.3);
 
         // Step 4:  Stop
         stopMotors();
