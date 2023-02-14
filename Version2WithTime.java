@@ -66,7 +66,10 @@ public class Version2WithTime extends LinearOpMode {
     //declaring arm motors
     private DcMotor armMotor = null;
     private DcMotor armMotor2 = null;
-
+    
+    //declaring servos
+    private Servo servo = null;
+    
     private ElapsedTime runtime = new ElapsedTime();
 
 
