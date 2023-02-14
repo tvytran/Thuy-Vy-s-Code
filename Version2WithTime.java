@@ -110,6 +110,7 @@ public class Version2WithTime extends LinearOpMode {
     //initialize 
     
     
+    //intializes wheel motors
     public void initWheelMotors()
     {
         leftFrontDrive  = hardwareMap.get(DcMotor.class, "leftFrontDrive");
@@ -126,13 +127,20 @@ public class Version2WithTime extends LinearOpMode {
         rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
     }
     
+    
+    //initializes arm motors
     public void initArmMotors()
     {
+        armMotor = hardwareMap.get(DcMotor.class, "armMotor");
+        armMotor2 = hardwareMap.get(DcMotor.class, "armMotor2");
         
+        armMotor.setDirection(DcMotor.Direction.REVERSE);
+        armMotor2.setDirection(DcMotor.Direction.FORWARD);
     }
     public void initialize()
     {
         initWheelMotors();
+        initArmMotors();
     }
     //======================================================================================
     //movement methods
@@ -227,7 +235,7 @@ public class Version2WithTime extends LinearOpMode {
         }
     }
         
-
+    //stopping motors
     public void stopMotors()
     {
         leftFrontDrive.setPower(0);
