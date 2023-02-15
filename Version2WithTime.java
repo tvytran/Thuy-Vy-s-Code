@@ -140,10 +140,17 @@ public class Version2WithTime extends LinearOpMode {
         armMotor.setDirection(DcMotor.Direction.REVERSE);
         armMotor2.setDirection(DcMotor.Direction.FORWARD);
     }
+    
+    //initializes servo
+    public void initServo()
+    {
+        servo = hardwareMap.get(Servo.class, "servo");
+    }
     public void initialize()
     {
         initWheelMotors();
         initArmMotors();
+        initServo();
     }
     //======================================================================================
     //movement for wheels methods
