@@ -146,7 +146,7 @@ public class Version2WithTime extends LinearOpMode {
         initArmMotors();
     }
     //======================================================================================
-    //movement methods
+    //movement for wheels methods
     
     //going forward method
     public void goForward(double time)
@@ -210,6 +210,10 @@ public class Version2WithTime extends LinearOpMode {
         }
     }
     
+    
+    //=================================================================================================================================================
+    //moving the elevator methods
+    
     //arms moving up method
     public void goUp(double time)
     {
@@ -237,7 +241,13 @@ public class Version2WithTime extends LinearOpMode {
             telemetry.update();
         }
     }
-        
+    
+    //=====================================================================================================================
+    //claw methods
+    
+    //opening 
+    
+    //=======================================================================================================================
     //stopping motors
     public void stopMotors()
     {
