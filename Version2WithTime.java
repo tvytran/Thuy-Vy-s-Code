@@ -251,8 +251,18 @@ public class Version2WithTime extends LinearOpMode {
     
     //=====================================================================================================================
     //claw methods
-    
+   
     //opening 
+    public void openClaw()
+    {
+        servo.setPosition(1.0);
+    }
+    
+    //closing 
+    public void closeClaw()
+    {
+        servo.setPosition(0);
+    }
     
     //=======================================================================================================================
     //stopping motors
