@@ -93,12 +93,11 @@ public class Version2WithTime extends LinearOpMode {
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
-        // Step 1:  Drive forward for 3 seconds
-        goForward(3);
-
-        // Step 2:  Spin right for 1.3 seconds
+        
+        // Step 1:  Spin right for 0.65 seconds
         goTurnRight(0.65);
-
+        
+        //Step 2: Move elevator up for 0.3 seconds
         goUp(0.3);
 
         // Step 4:  Stop
@@ -106,7 +105,7 @@ public class Version2WithTime extends LinearOpMode {
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
-        sleep(1000);
+        sleep(1000)1
     }
     
     //============================================================================================================
@@ -233,6 +232,18 @@ public class Version2WithTime extends LinearOpMode {
             telemetry.addData("Path", "Leg 3: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
+    }
+    
+    //keeping arms to stay in place
+    public void stayUp(double time)
+    {
+        armMotor.setPower(0.1);
+        armMotor2.setPower(0.1);
+        
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < time)) {
+            telemetry.addData("Path", "Leg 3: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
     }
     
     //arms moving down
