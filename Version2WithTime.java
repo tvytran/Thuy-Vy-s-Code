@@ -102,7 +102,7 @@ public class Version2WithTime extends LinearOpMode {
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
-        sleep(1000)
+        sleep(1000);
     }
     
     //============================================================================================================
