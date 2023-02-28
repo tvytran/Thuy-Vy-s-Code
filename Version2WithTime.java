@@ -90,9 +90,6 @@ public class Version2WithTime extends LinearOpMode {
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
-
-        // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
-
         
         // Step 1:  Spin right for 0.65 seconds
         goTurnRight(0.65);
@@ -105,7 +102,7 @@ public class Version2WithTime extends LinearOpMode {
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
-        sleep(1000)1
+        sleep(1000)
     }
     
     //============================================================================================================
@@ -244,6 +241,7 @@ public class Version2WithTime extends LinearOpMode {
         while (opModeIsActive() && (runtime.seconds() < time)) {
             telemetry.addData("Path", "Leg 3: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
+        }
     }
     
     //arms moving down
