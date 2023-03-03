@@ -91,12 +91,27 @@ public class Version2WithTime extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
         
+        //go straight
+        goForward(0.9);
+        
         // Step 1:  Spin right for 0.65 seconds
         goTurnRight(0.65);
         
         //Step 2: Move elevator up for 0.3 seconds
         goUp(0.3);
-
+        
+        //stay up
+        
+        stayUp(1);
+        
+        //step 3: open claw
+        openClaw();
+        
+        //step 4: go down
+        goDown(0.3);
+        
+        
+        
         // Step 4:  Stop
         stopMotors();
 
